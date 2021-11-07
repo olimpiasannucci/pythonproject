@@ -4,6 +4,9 @@ Spyder Editor
 
 This is a temporary script file.
 """
+#authors: Olimpia Sannucci, Giulia Di Martino and Hanna Carucci Viterbi
+
+
 import requests
 
 url = 'https://ghibliapi.herokuapp.com/films/'
@@ -38,6 +41,7 @@ print(df['people'])
 
 print(df['description'][2])
 print(df["producer"])
+print(df["title"][8])
 
 
 
