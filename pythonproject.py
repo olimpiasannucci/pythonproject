@@ -37,6 +37,8 @@ print(df['title'][2]) #to print the second movie
 print(df['people'])
 
 print(df['description'][2])
+print(df["producer"])
+
 
 
 
