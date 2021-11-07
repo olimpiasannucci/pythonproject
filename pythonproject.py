@@ -45,9 +45,7 @@ print(df["title"][8])
 
 #assessing the description of Ponyo 
 print(df["description"][14])
-
-
-
+print(df["description"][11])
 
 
 
