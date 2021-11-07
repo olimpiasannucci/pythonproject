@@ -6,7 +6,7 @@ This is a temporary script file.
 """
 #authors: Olimpia Sannucci, Giulia Di Martino and Hanna Carucci Viterbi
 
-
+#dataframe movies
 import requests
 
 url = 'https://ghibliapi.herokuapp.com/films/'
@@ -42,13 +42,36 @@ print(df['people'])
 print(df['description'][2])
 print(df["producer"])
 print(df["title"][8])
-
 #assessing the description of Ponyo 
 print(df["description"][14])
 print(df["description"][11])
 
 
 
+
+#dataframe people 
+import requests
+
+url2 = 'https://ghibliapi.herokuapp.com/people'
+response2 = requests.get(url2)
+file2 = open("ghibli_people.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
+print(file2.name)
+file2.writelines(response2.text)
+file2.close()
+
+import json
+import pandas
+
+json_data2 = json.load(open("ghibli_people.json", encoding= 'utf-8'))
+
+all_people = json_data2[0:]
+
+csv_file_path = 'merged_people.csv'
+df2 = pandas.DataFrame(all_people)
+
+df2.drop(["films"], axis = 1, inplace = True)
+df2.drop(["species"], axis = 1, inplace = True)
+df2.drop(["gander"], axis = 1, inplace = True)
 
 
 
