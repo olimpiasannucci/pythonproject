@@ -99,7 +99,6 @@ df3.drop(["gander"], axis = 1, inplace = True)
 df3.drop(["residents"], axis = 1, inplace = True)
 
 #dataframe vehicles
-
 import requests 
 
 url4 = 'https://ghibliapi.herokuapp.com/vehicles'
@@ -123,7 +122,6 @@ df4.drop(["pilot"], axis = 1, inplace = True)
 df4.drop(["films"], axis = 1, inplace = True)
 
 #dataframe species 
-
 import requests 
 
 url5 = 'https://ghibliapi.herokuapp.com/species'
