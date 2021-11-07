@@ -122,7 +122,29 @@ df4 = pandas.DataFrame(all_vehicles)
 df4.drop(["pilot"], axis = 1, inplace = True)
 df4.drop(["films"], axis = 1, inplace = True)
 
+#dataframe species 
 
+import requests 
+
+url5 = 'https://ghibliapi.herokuapp.com/species'
+response5 = requests.get(url5)
+file5 = open("ghibli_species.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
+print(file5.name)
+file5.writelines(response5.text)
+file5.close()
+
+import json
+import pandas
+
+json_data5 = json.load(open("ghibli_species.json", encoding= 'utf-8'))
+
+all_species = json_data5[0:]
+
+csv_file_path = 'merged_species.csv'
+df5 = pandas.DataFrame(all_species)
+
+df5.drop(["people"], axis = 1, inplace = True)
+df5.drop(["films"], axis = 1, inplace = True)
 
 
 
