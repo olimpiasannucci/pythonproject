@@ -50,6 +50,7 @@ df2.drop(["films"], axis = 1, inplace = True)
 df2.drop(["species"], axis = 1, inplace = True)
 df2.drop(["gander"], axis = 1, inplace = True)
 
+
 #dataframe locations 
 
 url3 = 'https://ghibliapi.herokuapp.com/locations'
