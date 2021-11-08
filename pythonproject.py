@@ -74,7 +74,7 @@ df3.drop(["gander"], axis = 1, inplace = True)
 df3.drop(["residents"], axis = 1, inplace = True)
 
 #dataframe vehicles
-import requests 
+
 
 url4 = 'https://ghibliapi.herokuapp.com/vehicles'
 response4 = requests.get(url4)
@@ -83,8 +83,6 @@ print(file4.name)
 file4.writelines(response4.text)
 file4.close()
 
-import json
-import pandas
 
 json_data4 = json.load(open("ghibli_vehicles.json", encoding= 'utf-8'))
 
