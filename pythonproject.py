@@ -109,7 +109,7 @@ file5.writelines(response5.text)
 file5.close()
 
 import json
-import pandas
+
 
 json_data5 = json.load(open("ghibli_species.json", encoding= 'utf-8'))
 
