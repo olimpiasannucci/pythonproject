@@ -95,8 +95,6 @@ df4.drop(["pilot"], axis = 1, inplace = True)
 df4.drop(["films"], axis = 1, inplace = True)
 
 #dataframe species 
-import requests 
-
 url5 = 'https://ghibliapi.herokuapp.com/species'
 response5 = requests.get(url5)
 file5 = open("ghibli_species.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
