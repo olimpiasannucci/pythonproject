@@ -52,14 +52,12 @@ df2.drop(["gander"], axis = 1, inplace = True)
 
 
 #dataframe locations 
-
 url3 = 'https://ghibliapi.herokuapp.com/locations'
 response3 = requests.get(url3)
 file3 = open("ghibli_locations.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
 print(file3.name)
 file3.writelines(response3.text)
 file3.close()
-
 
 json_data3 = json.load(open("ghibli_locations.json", encoding= 'utf-8'))
 
@@ -73,9 +71,7 @@ df3.drop(["species"], axis = 1, inplace = True)
 df3.drop(["gander"], axis = 1, inplace = True)
 df3.drop(["residents"], axis = 1, inplace = True)
 
-
 #dataframe vehicles
-
 url4 = 'https://ghibliapi.herokuapp.com/vehicles'
 response4 = requests.get(url4)
 file4 = open("ghibli_vehicles.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
@@ -101,7 +97,6 @@ file5 = open("ghibli_species.json", "w+", encoding='utf-8') #ho aggiunto encodin
 print(file5.name)
 file5.writelines(response5.text)
 file5.close()
-
 
 json_data5 = json.load(open("ghibli_species.json", encoding= 'utf-8'))
 
