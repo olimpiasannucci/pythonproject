@@ -73,8 +73,8 @@ df3.drop(["species"], axis = 1, inplace = True)
 df3.drop(["gander"], axis = 1, inplace = True)
 df3.drop(["residents"], axis = 1, inplace = True)
 
-#dataframe vehicles
 
+#dataframe vehicles
 
 url4 = 'https://ghibliapi.herokuapp.com/vehicles'
 response4 = requests.get(url4)
@@ -82,7 +82,6 @@ file4 = open("ghibli_vehicles.json", "w+", encoding='utf-8') #ho aggiunto encodi
 print(file4.name)
 file4.writelines(response4.text)
 file4.close()
-
 
 json_data4 = json.load(open("ghibli_vehicles.json", encoding= 'utf-8'))
 
@@ -93,6 +92,7 @@ df4 = pandas.DataFrame(all_vehicles)
 
 df4.drop(["pilot"], axis = 1, inplace = True)
 df4.drop(["films"], axis = 1, inplace = True)
+
 
 #dataframe species 
 url5 = 'https://ghibliapi.herokuapp.com/species'
