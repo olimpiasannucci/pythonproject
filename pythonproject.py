@@ -32,14 +32,6 @@ df.columns = ['id', 'title', 'original_title', 'original_title_romanised','image
 
 df.to_csv(csv_file_path, index=False)
 
-print(df['description'][2])
-print(df["producer"])
-print(df["title"][8])
-#assessing the description of Ponyo 
-print(df["description"][14])
-print(df["description"][11])
-
-
 
 
 #dataframe people 
