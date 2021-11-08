@@ -1,0 +1,8 @@
+id,name,classification,eye_colors,hair_colors,url
+af3910a6-429f-4c74-9ad5-dfe1c4aa04f2,Human,Mammal,"Black, Blue, Brown, Grey, Green, Hazel","Black, Blonde, Brown, Grey, White",https://ghibliapi.herokuapp.com/species/af3910a6-429f-4c74-9ad5-dfe1c4aa04f2
+6bc92fdd-b0f4-4286-ad71-1f99fb4a0d1e,Deer,Elk,"Black, Red","Brown, Light Orange",https://ghibliapi.herokuapp.com/species/6bc92fdd-b0f4-4286-ad71-1f99fb4a0d1e
+b5a92d0e-5fb4-43d4-ba60-c012135958e4,Spirit,Spirit,Red,Light Orange,htps://ghibliapi.herokuapp.com/species/b5a92d0e-5fb4-43d4-ba60-c012135958e4
+f25fa661-3073-414d-968a-ab062e3065f7,God,God,Brown,White,https://ghibliapi.herokuapp.com/species/f25fa661-3073-414d-968a-ab062e3065f7
+603428ba-8a86-4b0b-a9f1-65df6abef3d3,Cat,Mammal,"Brown, Black, Yellow, White, Emerald, Blue, Green","White, Black, Brown, Beige, Grey, Yellow",https://ghibliapi.herokuapp.com/species/603428ba-8a86-4b0b-a9f1-65df6abef3d3
+74b7f547-1577-4430-806c-c358c8b6bcf5,Totoro,Mammal,Grey,Grey,https://ghibliapi.herokuapp.com/species/74b7f547-1577-4430-806c-c358c8b6bcf5
+e2cfaa78-fb19-11eb-9a03-0242ac130003,Dragon,Dragon,"Orange, Green, Red","White, Green, Gray",https://ghibliapi.herokuapp.com/species/e2cfaa78-fb19-11eb-9a03-0242ac130003
