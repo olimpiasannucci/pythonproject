@@ -32,13 +32,6 @@ df.columns = ['id', 'title', 'original_title', 'original_title_romanised','image
 
 df.to_csv(csv_file_path, index=False)
 
-
-print(df['title']) #to get all the titles 
-
-print(df['title'][2]) #to print the second movie 
-
-print(df['people'])
-
 print(df['description'][2])
 print(df["producer"])
 print(df["title"][8])
