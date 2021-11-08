@@ -26,8 +26,6 @@ all_movies = json_data[0:]
 csv_file_path = 'merged_ghibli.csv'
 df = pandas.DataFrame(all_movies)
 
-df.columns = ['id', 'title', 'original_title', 'original_title_romanised','image','movie_banner','description','director','producer','release_date','running_time','rt_score','people','species','locations','vehicols','url']
-
 df.to_csv(csv_file_path, index=False)
 
 
