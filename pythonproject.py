@@ -11,7 +11,7 @@ import requests
 
 url = 'https://ghibliapi.herokuapp.com/films/'
 response = requests.get(url)
-file = open("ghibli_studio.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
+file = open("ghibli_studio.json", "w+", encoding='utf-8') 
 print(file.name)
 file.writelines(response.text)
 file.close()
