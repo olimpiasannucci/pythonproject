@@ -35,17 +35,12 @@ df.to_csv(csv_file_path, index=False)
 
 
 #dataframe people 
-import requests
-
 url2 = 'https://ghibliapi.herokuapp.com/people'
 response2 = requests.get(url2)
 file2 = open("ghibli_people.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
 print(file2.name)
 file2.writelines(response2.text)
 file2.close()
-
-import json
-import pandas
 
 json_data2 = json.load(open("ghibli_people.json", encoding= 'utf-8'))
 
