@@ -40,7 +40,7 @@ df.to_csv(csv_file_path, index=False)
 #dataframe people 
 url2 = 'https://ghibliapi.herokuapp.com/people'
 response2 = requests.get(url2)
-file2 = open("ghibli_people.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
+file2 = open("ghibli_people.json", "w+", encoding='utf-8') 
 print(file2.name)
 file2.writelines(response2.text)
 file2.close()
@@ -74,9 +74,9 @@ csv_file_path3 = 'merged_locations.csv'
 df3 = pandas.DataFrame(all_locations)
 
 df3.drop(["films"], axis = 1, inplace = True)
-df3.drop(["species"], axis = 1, inplace = True)
-df3.drop(["gander"], axis = 1, inplace = True)
 df3.drop(["residents"], axis = 1, inplace = True)
+
+df3.to_csv(csv_file_path, index=False)
 
 #dataframe vehicles
 url4 = 'https://ghibliapi.herokuapp.com/vehicles'
@@ -96,6 +96,8 @@ df4 = pandas.DataFrame(all_vehicles)
 df4.drop(["pilot"], axis = 1, inplace = True)
 df4.drop(["films"], axis = 1, inplace = True)
 
+df4.to_csv(csv_file_path, index=False
+
 
 #dataframe species 
 url5 = 'https://ghibliapi.herokuapp.com/species'
@@ -114,6 +116,9 @@ df5 = pandas.DataFrame(all_species)
 
 df5.drop(["people"], axis = 1, inplace = True)
 df5.drop(["films"], axis = 1, inplace = True)
+
+df5.to_csv(csv_file_path, index=False)
+
 
 
 
