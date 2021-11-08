@@ -61,7 +61,7 @@ df2.to_csv(csv_file_path, index=False)
 #dataframe locations 
 url3 = 'https://ghibliapi.herokuapp.com/locations'
 response3 = requests.get(url3)
-file3 = open("ghibli_locations.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
+file3 = open("ghibli_locations.json", "w+", encoding='utf-8') 
 print(file3.name)
 file3.writelines(response3.text)
 file3.close()
@@ -81,7 +81,7 @@ df3.to_csv(csv_file_path, index=False)
 #dataframe vehicles
 url4 = 'https://ghibliapi.herokuapp.com/vehicles'
 response4 = requests.get(url4)
-file4 = open("ghibli_vehicles.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
+file4 = open("ghibli_vehicles.json", "w+", encoding='utf-8') 
 print(file4.name)
 file4.writelines(response4.text)
 file4.close()
