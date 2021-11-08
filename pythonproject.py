@@ -25,6 +25,7 @@ all_movies = json_data[0:]
 
 csv_file_path = 'merged_ghibli.csv'
 df = pandas.DataFrame(all_movies)
+
 df.drop(["original_title_romanised"], axis = 1, inplace = True)
 df.drop(["image"], axis = 1, inplace = True)
 df.drop(["movie_banner"], axis = 1, inplace = True)
