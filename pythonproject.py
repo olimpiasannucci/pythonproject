@@ -53,8 +53,7 @@ df2.drop(["films"], axis = 1, inplace = True)
 df2.drop(["species"], axis = 1, inplace = True)
 df2.drop(["gander"], axis = 1, inplace = True)
 
-#dataframe locations
-import requests 
+#dataframe locations 
 
 url3 = 'https://ghibliapi.herokuapp.com/locations'
 response3 = requests.get(url3)
@@ -63,8 +62,6 @@ print(file3.name)
 file3.writelines(response3.text)
 file3.close()
 
-import json
-import pandas
 
 json_data3 = json.load(open("ghibli_locations.json", encoding= 'utf-8'))
 
