@@ -49,13 +49,12 @@ json_data2 = json.load(open("ghibli_people.json", encoding= 'utf-8'))
 
 all_people = json_data2[0:]
 
-csv_file_path = 'merged_people.csv'
-df2 = pandas.DataFrame(all_people)
-
 df2.drop(["films"], axis = 1, inplace = True)
 df2.drop(["species"], axis = 1, inplace = True)
 df2.drop(["gander"], axis = 1, inplace = True)
 
+csv_file_path = 'merged_people.csv'
+df2 = pandas.DataFrame(all_people)
 
 #dataframe locations 
 url3 = 'https://ghibliapi.herokuapp.com/locations'
