@@ -127,20 +127,17 @@ from matplotlib import gridspec
 from IPython import get_ipython 
 
 
-#dataframe 1
+#DATAFRAME 1 
 df.drop(["id"], axis = 1, inplace = True)
 df.drop(["url"], axis = 1, inplace = True)
 df.drop(["original_title"], axis = 1, inplace = True)
 df.drop(["description"], axis = 1, inplace = True)
 from numpy import array
 
-
-
 #number of films by each producer
 df["producer"].value_counts().plot(kind='bar', title='Number of films per producer\n', color="blue")
 #numer of films by each director 
 df["director"].value_counts().plot(kind='bar', title='Number of films per director\n', color="green")
-
 
 #scatter plot with all movies ad the year they were released
 xData = df['title']
@@ -174,41 +171,53 @@ plt.ylabel('scores')
 plt.show()
 
 
-#first step is to find the distribution of each gender in the dataframe "people" (BOH??) l'ha fatto vincenzo
-male = df2.loc[df2['gender'] == 'Male']. count()[0]
-female = df2.loc[df2['gender'] == 'Female']. count()[0]
-other=len(df2) - male - female 
-
-
-
+#DATAFRAME 2
 #remove columns
 df2.drop(["id"], axis = 1, inplace = True)
 df2.drop(["url"], axis = 1, inplace = True)
 
+#first step is to find the distribution of each gender in the dataframe "people" (BOH??) l'ha fatto vincenzo
+male = df2.loc[df2['gender'] == 'Male']. count()[0]
+female = df2.loc[df2['gender'] == 'Female']. count()[0]
+other=len(df2) - male - female 
+plt.hist(male, female, other)
+
+#barplot gender
+df2["gender"].value_counts().plot(kind='bar', title='Genders\n', color="pink")
+
 #pie plot gender
 #function count() to transform non numerical variables 
+plt.subplot(221)
 df2.groupby('gender')['gender'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+
 #pie with eye color 
+plt.subplot(222)
 df2.groupby('eye_color')['eye_color'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+
 #pie with hair color
+plt.subplot(223)
 df2.groupby('hair_color')['hair_color'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+#subplot to put them in the same image 
 
 
-#dataframe 3 locations 
+
+#DATAFRAME 3 locations 
 df3.drop(["id"], axis = 1, inplace = True)
 df3.drop(["url"], axis = 1, inplace = True)
+
 #pie plot terrain
 df3.groupby('terrain')['terrain'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+
 #pie sul clima
 df3.groupby('climate')['climate'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+
 #distribuzione del clima 
+plt.subplot(331)
 df3["climate"].value_counts().plot(kind='bar', title='climate distribution \n', color="green")
+plt.subplot(332)
 df3["terrain"].value_counts().plot(kind='bar', title='terrain distribution \n', color="green")
 
 #couldn't do a graph with the distribution of climate or terrain
-
-df3["climate"].value_counts().plot(kind='area')
-
 
 #water distribution for each location
 df3.index = df3["name"]
@@ -217,15 +226,24 @@ plt.title("Surface Water distribution for each location\n")
 plt.xticks(rotation= 90)
 
 
-#dataframe 4 vechicles
+#DATAFRAME 4 vechicles
 #remove columns
 df4.drop(["id"], axis = 1, inplace = True)
 df4.drop(["url"], axis = 1, inplace = True)
 #pie plot vehicles
 df4.groupby('vehicle_class')['vehicle_class'].count().plot.pie(autopct='%.2f',figsize=(5,5))
 
+#barplot vehicles 
+xData = df4["name"]
+yData = df4["length"]
+plt.bar(xData,yData)
+plt.title('vehicles and length')
+plt.xlabel('lenght')
+plt.ylabel('vehicle')
+plt.show()
+#ordine crescende sulle y????
 
-#dataframe 5 species
+#DATAFRAME 5 species
 #remove columns
 df5.drop(["id"], axis = 1, inplace = True)
 df5.drop(["url"], axis = 1, inplace = True)
