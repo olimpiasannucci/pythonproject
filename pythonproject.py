@@ -119,6 +119,75 @@ df5.drop(["films"], axis = 1, inplace = True)
 
 df5.to_csv(csv_file_path, index=False)
 
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import gridspec
+from IPython import get_ipython 
 
+#dataframe 1
+df.drop(["id"], axis = 1, inplace = True)
+df.drop(["url"], axis = 1, inplace = True)
+df.drop(["original_title"], axis = 1, inplace = True)
+df.drop(["description"], axis = 1, inplace = True)
+from numpy import array
+
+
+
+#number of films by each producer
+df["producer"].value_counts().plot(kind='bar', title='Number of films per producer\n', color="blue")
+#numer of films by each director 
+df["director"].value_counts().plot(kind='bar', title='Number of films per director\n', color="green")
+
+plt.hist(df['release_date'], color='purple', edgecolor='black') #brutto
+
+
+
+#first step is to find the distribution of each gender in the dataframe "people"
+male = df2.loc[df2['gender'] == 'Male']. count()[0]
+female = df2.loc[df2['gender'] == 'Female']. count()[0]
+other=len(df2) - male - female 
+
+
+
+#remove columns
+df2.drop(["id"], axis = 1, inplace = True)
+df2.drop(["url"], axis = 1, inplace = True)
+
+#pie plot gender
+#function count() to transform non numerical variables 
+df2.groupby('gender')['gender'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+#pie with eye color 
+df2.groupby('eye_color')['eye_color'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+#pie with hair color
+df2.groupby('hair_color')['hair_color'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+
+
+
+#dataframe 3 locations 
+df3.drop(["id"], axis = 1, inplace = True)
+df3.drop(["url"], axis = 1, inplace = True)
+#pie plot terrain
+df3.groupby('terrain')['terrain'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+#pie sul clima
+df3.groupby('climate')['climate'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+#distribuzione del clima 
+df3["climate"].value_counts().plot(kind='bar', title='climate distribution \n', color="green")
+df3["terrain"].value_counts().plot(kind='bar', title='terrain distribution \n', color="green")
+
+
+#dataframe 4 vechicles
+#remove columns
+df4.drop(["id"], axis = 1, inplace = True)
+df4.drop(["url"], axis = 1, inplace = True)
+#pie plot vehicles
+df4.groupby('vehicle_class')['vehicle_class'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+
+
+#dataframe 5 species
+#remove columns
+df5.drop(["id"], axis = 1, inplace = True)
+df5.drop(["url"], axis = 1, inplace = True)
+#pie
+df5.groupby('name')['name'].count().plot.pie(autopct='%.2f',figsize=(5,5))
 
 
