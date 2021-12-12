@@ -119,10 +119,13 @@ df5.drop(["films"], axis = 1, inplace = True)
 
 df5.to_csv(csv_file_path, index=False)
 
+           
+ #task 2
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 from IPython import get_ipython 
+
 
 #dataframe 1
 df.drop(["id"], axis = 1, inplace = True)
@@ -138,11 +141,40 @@ df["producer"].value_counts().plot(kind='bar', title='Number of films per produc
 #numer of films by each director 
 df["director"].value_counts().plot(kind='bar', title='Number of films per director\n', color="green")
 
-plt.hist(df['release_date'], color='purple', edgecolor='black') #brutto
+
+#scatter plot with all movies ad the year they were released
+xData = df['title']
+yData = df(['release_date'])
+plt.scatter(xData,yData)
+plt.xticks(ticks=range(len(df['title'])), rotation=90)
+plt.title('release dates')
+plt.xlabel('movies')
+plt.ylabel('years')
+plt.show()
+
+#movies and running time scatterplot
+xData = df['title']
+yData = df['running_time']
+plt.scatter(xData, yData) 
+plt.xticks(ticks=range(len(df['title'])), rotation=90)
+plt.title('RUNNING TIME')
+plt.xlabel('movies')
+plt.ylabel('running time')
+plt.show()
+#c'è un modo per mettere asse y in ordine crescente?
+
+#score and release date scatterplot
+xData = df['release_date']
+yData = df['rt_score']
+plt.scatter(xData,yData)
+plt.xticks(ticks=range(len(df['release_date'])), rotation=90)
+plt.title('Relationship between release date and the scores')
+plt.xlabel('years')
+plt.ylabel('scores')
+plt.show()
 
 
-
-#first step is to find the distribution of each gender in the dataframe "people"
+#first step is to find the distribution of each gender in the dataframe "people" (BOH??) l'ha fatto vincenzo
 male = df2.loc[df2['gender'] == 'Male']. count()[0]
 female = df2.loc[df2['gender'] == 'Female']. count()[0]
 other=len(df2) - male - female 
@@ -162,7 +194,6 @@ df2.groupby('eye_color')['eye_color'].count().plot.pie(autopct='%.2f',figsize=(5
 df2.groupby('hair_color')['hair_color'].count().plot.pie(autopct='%.2f',figsize=(5,5))
 
 
-
 #dataframe 3 locations 
 df3.drop(["id"], axis = 1, inplace = True)
 df3.drop(["url"], axis = 1, inplace = True)
@@ -173,6 +204,17 @@ df3.groupby('climate')['climate'].count().plot.pie(autopct='%.2f',figsize=(5,5))
 #distribuzione del clima 
 df3["climate"].value_counts().plot(kind='bar', title='climate distribution \n', color="green")
 df3["terrain"].value_counts().plot(kind='bar', title='terrain distribution \n', color="green")
+
+#couldn't do a graph with the distribution of climate or terrain
+
+df3["climate"].value_counts().plot(kind='area')
+
+
+#water distribution for each location
+df3.index = df3["name"]
+plt.plot(df3["surface_water"])
+plt.title("Surface Water distribution for each location\n")
+plt.xticks(rotation= 90)
 
 
 #dataframe 4 vechicles
@@ -189,5 +231,3 @@ df5.drop(["id"], axis = 1, inplace = True)
 df5.drop(["url"], axis = 1, inplace = True)
 #pie
 df5.groupby('name')['name'].count().plot.pie(autopct='%.2f',figsize=(5,5))
-
-
