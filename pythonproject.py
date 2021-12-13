@@ -121,127 +121,7 @@ df5.to_csv(csv_file_path, index=False)
 
            
  #task 2
-import requests
 
-url = 'https://ghibliapi.herokuapp.com/films'
-response = requests.get(url)
-file = open("ghibli_studio.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
-print(file.name)
-file.writelines(response.text)
-file.close()
-
-import json
-import pandas
-
-
-json_data = json.load(open("ghibli_studio.json", encoding= 'utf-8'))
-
-all_movies = json_data[0:]
-
-csv_file_path = 'merged_ghibli.csv'
-df = pandas.DataFrame(all_movies)
-
-df.drop(["original_title_romanised"], axis = 1, inplace = True)
-df.drop(["image"], axis = 1, inplace = True)
-df.drop(["movie_banner"], axis = 1, inplace = True)
-df.drop(["people"], axis = 1, inplace = True)
-df.drop(["species"], axis = 1, inplace = True)
-df.drop(["locations"], axis = 1, inplace = True)
-df.drop(["vehicles"], axis = 1, inplace = True)
-
-df.to_csv(csv_file_path, index=False)
-
-#removed all the reduntant variables 
-
-
-
-url2 = 'https://ghibliapi.herokuapp.com/people'
-response2 = requests.get(url2)
-file2 = open("ghibli_people.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
-print(file2.name)
-file2.writelines(response2.text)
-file2.close()
-
-
-
-json_data2 = json.load(open("ghibli_people.json", encoding= 'utf-8'))
-
-all_people = json_data2[0:]
-
-df2 = pandas.DataFrame(all_people)
-
-df2.drop(["films"], axis = 1, inplace = True)
-df2.drop(["species"], axis = 1, inplace = True)
-df2.drop(["gander"], axis = 1, inplace = True)
-
-csv_file_path = 'merged_people.csv'
-df2.to_csv(csv_file_path, index=False)
-
-
-
-url3 = 'https://ghibliapi.herokuapp.com/locations'
-response3 = requests.get(url3)
-file3 = open("ghibli_locations.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
-print(file3.name)
-file3.writelines(response3.text)
-file3.close()
-
-
-json_data3 = json.load(open("ghibli_locations.json", encoding= 'utf-8'))
-
-all_locations = json_data3[0:]
-
-csv_file_path = 'merged_locations.csv'
-df3 = pandas.DataFrame(all_locations)
-
-df3.drop(["films"], axis = 1, inplace = True)
-df3.drop(["residents"], axis = 1, inplace = True)
-
-df3.to_csv(csv_file_path, index=False)
-
- 
-
-url4 = 'https://ghibliapi.herokuapp.com/vehicles'
-response4 = requests.get(url4)
-file4 = open("ghibli_vehicles.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
-print(file4.name)
-file4.writelines(response4.text)
-file4.close()
-
-
-json_data4 = json.load(open("ghibli_vehicles.json", encoding= 'utf-8'))
-
-all_vehicles = json_data4[0:]
-
-csv_file_path = 'merged_vehicles.csv'
-df4 = pandas.DataFrame(all_vehicles)
-
-df4.drop(["pilot"], axis = 1, inplace = True)
-df4.drop(["films"], axis = 1, inplace = True)
-
-df4.to_csv(csv_file_path, index=False)
-
-
-url5 = 'https://ghibliapi.herokuapp.com/species'
-response5 = requests.get(url5)
-file5 = open("ghibli_species.json", "w+", encoding='utf-8') #ho aggiunto encoding pechè non leggeva il giapponese nel json
-print(file5.name)
-file5.writelines(response5.text)
-file5.close()
-
-json_data5 = json.load(open("ghibli_species.json", encoding= 'utf-8'))
-
-all_species = json_data5[0:]
-
-csv_file_path = 'merged_species.csv'
-df5 = pandas.DataFrame(all_species)
-
-df5.drop(["people"], axis = 1, inplace = True)
-df5.drop(["films"], axis = 1, inplace = True)
-
-df5.to_csv(csv_file_path, index=False)
-
-#task 2
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
@@ -261,6 +141,7 @@ df["producer"].value_counts().plot(kind='bar', title='Number of films per produc
 
 #numer of films by each director 
 df["director"].value_counts().plot(kind='bar', title='Number of films per director\n', color="green")
+
 
 #scatter plot with all movies ad the year they were released
 xData = df['title']
@@ -312,6 +193,7 @@ other=len(df2) - male - female
 #barplot gender
 df2["gender"].value_counts().plot(kind='bar', title='Genders\n', color="pink")
 
+
 #pie plot gender
 #function count() to transform non numerical variables 
 
@@ -325,6 +207,7 @@ df2.groupby('eye_color')['eye_color'].count().plot.pie(autopct='%.2f',figsize=(5
 
 df2.groupby('hair_color')['hair_color'].count().plot.pie(autopct='%.2f',figsize=(5,5))
 
+
 #DATAFRAME 3 locations 
 df3.drop(["id"], axis = 1, inplace = True)
 df3.drop(["url"], axis = 1, inplace = True)
@@ -332,10 +215,11 @@ df3.drop(["url"], axis = 1, inplace = True)
 #pie plot terrain
 df3.groupby('terrain')['terrain'].count().plot.pie(autopct='%.2f',figsize=(5,5))
 
-#pie climate 
+#pie climate
 df3.groupby('climate')['climate'].count().plot.pie(autopct='%.2f',figsize=(5,5))
 
-#climate distribution
+
+#climate distribuion
 
 df3["climate"].value_counts().plot(kind='bar', title='climate distribution \n', color="green")
 
@@ -349,12 +233,14 @@ plt.xticks(rotation= 90)
 plt.savefig("surface_water_distribution.png",dpi=300)
 
 
+
 #DATAFRAME 4 vechicles
 #remove columns
 df4.drop(["id"], axis = 1, inplace = True)
 df4.drop(["url"], axis = 1, inplace = True)
 #pie plot vehicles
 df4.groupby('vehicle_class')['vehicle_class'].count().plot.pie(autopct='%.2f',figsize=(5,5))
+
 
 #invert the columns
 df4 = df4.iloc[::-1]
