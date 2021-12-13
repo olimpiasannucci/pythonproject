@@ -185,7 +185,7 @@ plt.savefig("score_releasedate_scatter.png",dpi=300)
 df2.drop(["id"], axis = 1, inplace = True)
 df2.drop(["url"], axis = 1, inplace = True)
 
-#first step is to find the distribution of each gender in the dataframe "people" (BOH??) l'ha fatto vincenzo
+#first step is to find the distribution of each gender in the dataframe "people" 
 male = df2.loc[df2['gender'] == 'Male']. count()[0]
 female = df2.loc[df2['gender'] == 'Female']. count()[0]
 other=len(df2) - male - female 
